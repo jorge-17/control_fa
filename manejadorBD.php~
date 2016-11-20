@@ -1,0 +1,16 @@
+<?php
+$con=mysqli_connect("localhost","root","","flecha_amarilla");
+$action=$_GET['action'];
+
+switch($action){
+    case "insert_service":
+        mysqli_query($con,"INSERT INTO `servicios`(`ruta`, `empresa`, `domicilio`, `contacto`, `convenio`, `telefono`, `observaciones`, `paquetes`, `horario`, `paq_reales`, `nombre_e`) VALUES ('{$_POST["ruta"]}','{$_POST["empresa"]}','{$_POST["domicilio"]}','{$_POST["contacto"]}',{$_POST["convenio"]},'{$_POST["telefono"]}','{$_POST["observaciones"]}','{$_POST["paquetes"]}','{$_POST["horario"]}','{$_POST["paquetes_r"]}','{$_POST["nombre_e"]}')");
+        ?>
+        <script>alert("Servicio registrado satisfactoriamente");
+            window.location='index.php'
+        </script>
+        <?php
+        
+}
+
+?>
